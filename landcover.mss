@@ -3,6 +3,10 @@
 @grass: #cdebb0; // also meadow, common, garden, village_green, conservation
 @golf_course: #b5e3b5;
 @scrub: #b5e3b5;
+@forest-z8: #d4e0cf;    // Lch(88,10,136)
+@forest-z9: #cbdcc4;    // Lch(86,14,136)
+@forest-z10: #c2d8ba;   // Lch(84,18,136)
+@forest-z11: #b7d4ac;   // Lch(82,24,136)
 @forest: #add19e;       // Lch(80,30,135)
 @forest-text: #46673b;  // Lch(40,30,135)
 @park: #c8facc;         // Lch(94,30,145) also recreation_ground
@@ -242,8 +246,20 @@
 
   [feature = 'landuse_forest'],
   [feature = 'natural_wood'] {
-    [zoom >= 8] {
-      polygon-fill: @forest;
+      [zoom >= 8] {
+        polygon-fill: @forest-z8;
+      [zoom >= 9] {
+        polygon-fill: @forest-z9;
+      }
+      [zoom >= 10] {
+        polygon-fill: @forest-z10;
+      }
+      [zoom >= 11] {
+        polygon-fill: @forest-z11;
+      }
+      [zoom >= 12] {
+        polygon-fill: @forest;
+      }
       [way_pixels >= 4]  { polygon-gamma: 0.75; }
       [way_pixels >= 64] { polygon-gamma: 0.3;  }
     }
@@ -420,7 +436,19 @@
   }
  
   [feature = 'wetland_swamp'][zoom >= 8] {
-    polygon-fill: @forest;
+    polygon-fill: @forest-z8;
+    [zoom >= 9] {
+      polygon-fill: @forest-z9;
+    }
+    [zoom >= 10] {
+      polygon-fill: @forest-z10;
+    }
+    [zoom >= 11] {
+      polygon-fill: @forest-z11;
+    }
+    [zoom >= 12] {
+        polygon-fill: @forest;
+      }
     [way_pixels >= 4]  { polygon-gamma: 0.75; }
     [way_pixels >= 64] { polygon-gamma: 0.3;  }
   }
